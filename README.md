@@ -1,8 +1,8 @@
 # Eemeli Vartio's Exercise Portfolio
+This repository showcases a few of my solutions to the assignments I have done in Trainee Academy. I have chosen assignments that I thought were educational and interesting. They represent a variety of programming concepts we have learned and that I feel I am now using confidently.
+# Assignment 1: Grades
 
-**Assignment 1: Grades**
-
-*Instructions for the assignment*
+**Instructions for the assignment**
 
 We have the following list of students:
 ```js
@@ -30,7 +30,9 @@ Scores are converted to grades in the following way:
 
 EXTRA: Instead of returning only an array of grade numbers, return an array of new objects, where each object contains the student's name and their grade.
 
-*My implementation*
+**My implementation**
+
+In this task I need to make a new array with existing data from *students*, convert *scores* to *grades* and print out the new array without the *score* property.
 
 First I made the function and diceded to use ```array.map()``` for solving this task. 
 ```js
@@ -95,25 +97,49 @@ function getGrades (x) {
         }
         delete student.score;
     });
+
     return x;
 }
 
 console.log(getGrades(students));
 ```
 
-**Assignment 2**
-
-*Selitys*
-
-```js
-"Koodia"
-```
-
-**Assignment 3**
-
-*Selitys*
-
-```js
-"Koodia"
-```
+# Assignment 2
 *Instructions for the assignment*
+**Selitys**
+
+```js
+"Koodia"
+```
+**Selitys**
+
+```js
+"Koodia"
+```
+
+**Selitys**
+
+```js
+"Koodia"
+```
+# Assignment 3
+
+*Instructions for the assignment*
+
+**Selitys**
+
+```js
+"Koodia"
+```
+
+**Selitys**
+
+```js
+"Koodia"
+```
+
+**Selitys**
+
+```js
+"Koodia"
+```
