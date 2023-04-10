@@ -104,7 +104,7 @@ function getGrades (x) {
 console.log(getGrades(students));
 ```
 
-# Assignment 2
+# Assignment 2: Robot
 **Instructions for the assignment**
 
 *Create a Robot class with x and y properties. Inside the class, also create a ```handleCommandList``` function that takes a command list (string) as a parameter and handles it, except that it must affect the x and y coordinates of the Robot class instance rather than global variables.
@@ -175,6 +175,7 @@ class Robot {
         C: () => {},
       };
       const list = string.split("");
+      
       for (let i = 0; i < list.length; i++) {
         const command = list[i];
         if (command === "B") {
