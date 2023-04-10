@@ -32,7 +32,7 @@ EXTRA: Instead of returning only an array of grade numbers, return an array of n
 
 **My implementation**
 
-In this task I need to make a new array with existing data from *students*, convert *scores* to *grades* and print out the new array without the *score* property.
+In this assignment I need to make a new array with existing data from *students*, convert *scores* to *grades* and print out the new array without the *score* property.
 
 First I made the function and diceded to use ```array.map()``` for solving this task. 
 ```js
@@ -64,9 +64,9 @@ if(student.score < 14.0) {
         }
 ```
 
-Then I just needed to ```return``` my answer and get rid of scores.
+After that I just needed to ```return``` my answer and get rid of *scores*.
 
-*Full code*
+**Full code**
 ```js
 const students = [ { name: "Sami", score: 24.75 },
                    { name: "Heidi", score: 20.25 },
@@ -105,41 +105,90 @@ console.log(getGrades(students));
 ```
 
 # Assignment 2
-*Instructions for the assignment*
-**Selitys**
+**Instructions for the assignment**
+
+*Create a Robot class with x and y properties. Inside the class, also create a ```handleCommandList``` function that takes a command list (string) as a parameter and handles it, except that it must affect the x and y coordinates of the Robot class instance rather than global variables.
+Create an instance of the class and run the ```"NNEESSWWCNNEEENNNCEESSSWNNNECEESWWNNNEEEBENNNEEE"``` command list through the robot. Print the robot afterwards and verify its coordinates to be ```x = 8, y = 7 ``` to make sure your class works correctly.*
+
+**My implementation**
+
+Making it so that the ```class``` handles assigning the coordinates given to ```x``` and ```y``` inside itself and only returns the last coordinates given. So we can have more than one robot and need not to rewrite the code multiple times. The function ```handleCommandList``` should go trought the given command list and see if ```x``` or ```y``` needs to be increased or decreased, nothing should happen or that the loop should stop. It should help to split the command list to array of characters and go trought them one by one.  
+
+I started by making the ```class Robot``` and assigning ```constructor``` with the robots coordinates ```x``` and ```y```.
 
 ```js
-"Koodia"
-```
-**Selitys**
-
-```js
-"Koodia"
-```
-
-**Selitys**
-
-```js
-"Koodia"
-```
-# Assignment 3
-
-*Instructions for the assignment*
-
-**Selitys**
-
-```js
-"Koodia"
+class Robot {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+    }
+}    
 ```
 
-**Selitys**
+Then I devided the function into smaller tasks, command list handlers and a loop to go trought the command list. 
 
 ```js
-"Koodia"
+handleCommandList(string) {
+      const commandHandlers = {
+        N: () => this.y++,
+        E: () => this.x++,
+        S: () => this.y--,
+        W: () => this.x--,
+        C: () => {},
+      };
+}
 ```
 
-**Selitys**
+And then the loop that goes trought the split command list.
 
 ```js
-"Koodia"
+const list = string.split("");
+    for (let i = 0; i < list.length; i++) {
+        const command = list[i];
+        if (command === "B") {
+          break;
+        }
+        const handler = commandHandlers[command];
+        if (handler) {
+          handler();
+        }
+    }
+```
+
+Only thing left is to return the coordinates and test.
+
+**Full code**
+
+```js
+class Robot {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+    }
+    
+    handleCommandList(string) {
+      const commandHandlers = {
+        N: () => this.y++,
+        E: () => this.x++,
+        S: () => this.y--,
+        W: () => this.x--,
+        C: () => {},
+      };
+      const list = string.split("");
+      for (let i = 0; i < list.length; i++) {
+        const command = list[i];
+        if (command === "B") {
+          break;
+        }
+        const handler = commandHandlers[command];
+        if (handler) {
+          handler();
+        }
+      }
+      console.log(this.x, this.y);
+    }
+}
+  
+const robot1 = new Robot(0, 0);
+robot1.handleCommandList("NNEESSWWCNNEEENNNCEESSSWNNNECEESWWNNNEEEBENNNEEE");
 ```
